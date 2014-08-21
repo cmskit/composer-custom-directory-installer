@@ -24,7 +24,8 @@ class LibraryInstaller extends BaseLibraryInstaller
         'wizard' => './backend/wizards/NAME/',
       );
       
-      $packageName = $this->composer->getPackage()->getPrettyName();
+      
+      $packageName = $package->getPrettyName();
       
       return $packageName;
       
