@@ -13,11 +13,11 @@ class PearInstaller extends BasePearInstaller
     {
       // prefix => path
       $prefixes = array(
-        'core' => 'backend/',
-        'admin' => 'backend/admin/NAME/',
-        'extension' => 'backend/extensions/NAME/',
-        'template' => 'backend/templates/NAME/',
-        'wizard' => 'backend/wizards/NAME/',
+        'core' => './backend/',
+        'admin' => './backend/admin/NAME/',
+        'extension' => './backend/extensions/NAME/',
+        'template' => './backend/templates/NAME/',
+        'wizard' => './backend/wizards/NAME/',
       );
       
       $packageName = $this->composer->getPackage()->getName();
