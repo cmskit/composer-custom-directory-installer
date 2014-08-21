@@ -5,23 +5,26 @@ This is a composer plugin, to install composer packages in custom directories ou
 
 It relies on a special prefix within the package-name:
 
-Prefixes are installed to following paths
+Prefixes are installed to following paths:
 
         'admin' => './backend/admin/NAME/'
         'extension' => './backend/extensions/NAME/'
         'template' => './backend/templates/NAME/'
         'wizard' => './backend/wizards/NAME/'
 
-The prefix will be removed and dashes were replaced by underscores.
+In addition:
+
+* the prefix will be removed and 
+* hyphens will be replaced by underscores
 
 Examples:
 
-* your-vendor-name/admin-project-setup will be installed to backend/admin/project_setup
-* your-vendor-name/extension-usermanagement will be installed to backend/extensions/usermanagement
+* *your-vendor-name/admin-project-setup* will be installed to *backend/admin/project_setup*
+* *your-vendor-name/extension-usermanagement* will be installed to *backend/extensions/usermanagement*
 
 
 
-## Example of package composer.json 
+## Example of a package composer.json 
 
 	{
 	    "name": "cmskit/admin-project-setup",
