@@ -1,13 +1,13 @@
 {
-  "name": "mnsami/composer-custom-directory-installer",
+  "name": "cmskit/package-installer",
   "type": "composer-plugin",
-  "description": "A composer plugin, to help install packages of different types in custom paths.",
+  "description": "A composer plugin, to help install packages based on their name-prefix.",
   "license": "MIT",
   "keywords": ["composer", "composer-plugin", "composer-installer"],
   "authors": [
     {
-      "name": "Mina Nabil Sami",
-      "email": "mina.nsami@gmail.com"
+      "name": "Christoph Taubmann",
+      "email": "info@cms-kit.com"
     }
   ],
   "minimum-stability": "stable",

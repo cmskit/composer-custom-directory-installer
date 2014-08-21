@@ -12,27 +12,31 @@ class LibraryInstaller extends BaseLibraryInstaller
 {
   public function getInstallPath(PackageInterface $package)
   {
-    $names = $package->getNames();
 
     if ($this->composer->getPackage()) 
     {
-      $extra = $this->composer->getPackage()->getExtra();
-      if(!empty($extra['installer-paths']))
+      // prefix => path
+      $prefixes = array(
+        'core' => 'backend/',
+        'adminwizard' => 'backend/admin/NAME/',
+        'extension' => 'backend/extensions/NAME/',
+        'template' => 'backend/templates/NAME/',
+        'wizard' => 'backend/wizards/NAME/',
+      )
+      
+      $packageName = $this->composer->getPackage()->getName();
+      
+      $parts = explode('/', $packageName);// split vendor/PACKAGE-NAME
+      $part = explode('-', $parts[1]);// split PREFIX-package-name
+      
+      if (isset($prefixes[$part[0]]))
       {
-        foreach($extra['installer-paths'] as $path => $packageNames)
-        {
-          foreach($packageNames as $packageName)
-          {
-            if (in_array($packageName, $names)) {
-              return $path;
-            }
-          }
-        }
-      }
+		  return str_replace('NAME', $parts[1], $prefixes[$part[0]]);
+	  }
     }
 
-    /*
-     * In case, the user didn't provide a custom path
+    /**
+     * In case, the package-name dosen't match any rule
      * use the default one, by calling the parent::getInstallPath function
      */
     return parent::getInstallPath($package);
