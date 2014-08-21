@@ -10,7 +10,6 @@
       "email": "info@cms-kit.com"
     }
   ],
-  "minimum-stability": "stable",
   "require": {
     "php": ">=5.3",
     "composer-plugin-api": "*"
@@ -19,9 +18,6 @@
     "psr-0": {"Composer\\CustomDirectoryInstaller": "src/"}
   },
   "extra": {
-      "class": ["Composer\\CustomDirectoryInstaller\\LibraryPlugin", "Composer\\CustomDirectoryInstaller\\PearPlugin"],
-      "branch-alias": {
-        "dev-master": "1.0.x-dev"
-       }
+      "class": ["Composer\\CustomDirectoryInstaller\\LibraryPlugin", "Composer\\CustomDirectoryInstaller\\PearPlugin"]
   }
 }
