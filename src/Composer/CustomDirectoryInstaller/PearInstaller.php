@@ -22,19 +22,19 @@ class PearInstaller extends BasePearInstaller
       
       $packageName = $this->composer->getPackage()->getName();
       
-      $parts = explode('/', $packageName);// 1. split to get vendor/PREFIX-PACKAGE-NAME
-      $parts = explode('-', $parts[1]);// 2. split to get PREFIX-package-name
-      $prefix = array_shift($parts);// 3. extract the prefix (we don't need it anymore)
+      $parts = explode('/', $packageName); // 1. split to get vendor/PREFIX-PACKAGE-NAME
+      $parts = explode('-', $parts[1]); // 2. split to get PREFIX-package-name
+      $prefix = array_shift($parts); // 3. extract the prefix (we don't need it anymore)
       
       if (isset($prefixes[$prefix]))
       {
-		  $folderName = implode('_', $parts);
-		  return str_replace('NAME', $folderName, $prefixes[$part[0]]);
-	  }
+          $folderName = implode('_', $parts);
+          return str_replace('NAME', $folderName, $prefixes[$prefix]);
+      }
     }
 
     /**
-     * In case, the package-name dosen't match any rule
+     * In case, the package-name dosen't match any "rule"
      * use the default one, by calling the parent::getInstallPath function
      */
     return parent::getInstallPath($package);
