@@ -20,7 +20,7 @@ class PearInstaller extends BasePearInstaller
         'wizard' => './backend/wizards/NAME/',
       );
       
-      $packageName = $this->composer->getPackage()->getName();
+      $packageName = $package->getPrettyName();
       
       $parts = explode('/', $packageName); // 1. split to get vendor/PREFIX-PACKAGE-NAME
       $parts = explode('-', $parts[1]); // 2. split to get PREFIX-package-name
