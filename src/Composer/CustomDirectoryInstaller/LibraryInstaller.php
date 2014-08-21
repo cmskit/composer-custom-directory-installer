@@ -18,7 +18,7 @@ class LibraryInstaller extends BaseLibraryInstaller
       // prefix => path
       $prefixes = array(
         'core' => 'backend/',
-        'adminwizard' => 'backend/admin/NAME/',
+        'admin' => 'backend/admin/NAME/',
         'extension' => 'backend/extensions/NAME/',
         'template' => 'backend/templates/NAME/',
         'wizard' => 'backend/wizards/NAME/',
@@ -26,12 +26,14 @@ class LibraryInstaller extends BaseLibraryInstaller
       
       $packageName = $this->composer->getPackage()->getName();
       
-      $parts = explode('/', $packageName);// split vendor/PACKAGE-NAME
-      $part = explode('-', $parts[1]);// split PREFIX-package-name
+      $parts = explode('/', $packageName);// 1. split vendor/PACKAGE-NAME
+      $parts = explode('-', $parts[1]);// 2. split PREFIX-package-name
+      $prefix = array_shift($parts);// 3. extract the prefix (we don't need it anymore)
       
-      if (isset($prefixes[$part[0]]))
+      if (isset($prefixes[$prefix]))
       {
-		  return str_replace('NAME', $parts[1], $prefixes[$part[0]]);
+		  $folderName = implode('_', $parts);
+		  return str_replace('NAME', $folderName, $prefixes[$part[0]]);
 	  }
     }
 
