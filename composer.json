@@ -10,7 +10,6 @@
       "email": "info@cms-kit.com"
     }
   ],
-  "minimum-stability": "stable",
   "require": {
     "php": ">=5.3",
     "composer-plugin-api": "*"
