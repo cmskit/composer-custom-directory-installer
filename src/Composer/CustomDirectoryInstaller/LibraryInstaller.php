@@ -22,12 +22,12 @@ class LibraryInstaller extends BaseLibraryInstaller
         'extension' => 'backend/extensions/NAME/',
         'template' => 'backend/templates/NAME/',
         'wizard' => 'backend/wizards/NAME/',
-      )
+      );
       
       $packageName = $this->composer->getPackage()->getName();
       
-      $parts = explode('/', $packageName);// 1. split vendor/PACKAGE-NAME
-      $parts = explode('-', $parts[1]);// 2. split PREFIX-package-name
+      $parts = explode('/', $packageName);// 1. split to get vendor/PREFIX-PACKAGE-NAME
+      $parts = explode('-', $parts[1]);// 2. split to get PREFIX-package-name
       $prefix = array_shift($parts);// 3. extract the prefix (we don't need it anymore)
       
       if (isset($prefixes[$prefix]))
